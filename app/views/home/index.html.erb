@@ -1,0 +1,32 @@
+<div>
+
+  <div class="panel-small">
+    <p class="title">Nombre total de points</p>
+
+    <div class="panel-content">
+      <span class="single-data"><%= @count %></span>
+      </div>
+  </div>
+
+
+  <div class="panel-small">
+    <p class="title">Dernière mise à jour</p>
+    <div class="panel-content">
+      <span>
+        <% if @last_update.data_imported_count > 1 %>
+            <p><%= @last_update.data_imported_count %> points ajoutés</p>
+        <% else %>
+            <p><%= @last_update.data_imported_count %> point ajouté</p>
+        <% end %>
+        <p><%= @last_update.time.strftime('Le %d %b %Y') %></p>
+        <p>Par <%= @last_update.uploader %></p>
+      </span>
+    </div>
+  </div>
+</div>
+
+
+<div class="panel-medium">
+  <p class="title">Répartition des points</p>
+  <div id="types-count"></div>
+</div>

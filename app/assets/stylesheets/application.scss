@@ -1,0 +1,186 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+$color-primary: #263238;
+$color-secondary: #673ab7;
+$text-color-dark: #757575;
+$text-color-light: #BDBDBD;
+
+$panel-small-height: 150px;
+$panel-small-width: 230px;
+$panel-medium-height: 400px;
+$panel-medium-width: 500px;
+$panel-large-height: 400px;
+$panel-large-width: 100%;
+
+$table-border : #ddd;
+$table-bg-accent : #ede7f6;
+
+* {
+  font-family: sans-serif;
+  margin: 0;
+}
+
+html, body {
+  background-color: #eeeeee;
+  height: 100%;
+}
+
+#wrap {
+  height: auto;
+  min-height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+.nav {
+  position: absolute;
+  z-index: 10;
+  background-color: $color-secondary;
+  width: 100%;
+  line-height: 50px;
+  color: #ede7f6;
+  font-size: 22px;
+  box-shadow: 0 0 5px #424242;
+  p {
+    padding-left: 20px;
+  }
+}
+
+.menu {
+
+  background-color: $color-primary;
+  width: 200px;
+  float: left;
+  height: 100%;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  position: absolute;
+  box-shadow: 0 0 5px 2px #757575;
+}
+
+.fa {
+  width: 25px;
+}
+
+.menu ul {
+  margin-top: 50px;
+  padding: 0;
+  li {
+    line-height: 50px;
+    color: $text-color-light;
+    a {
+      list-style-type: none;
+      display: block;
+      color: $text-color-light;
+      padding-left: 20px;
+      text-decoration: none;
+    }
+    a.active {
+      background-color: #37474f;
+      border-right: 3px solid $color-secondary;
+    }
+    a:hover {
+      background-color: #455a64;
+    }
+  }
+}
+
+.content {
+  margin-left: 220px;
+  padding-top: 60px;
+  padding-right: 50px;
+
+}
+
+.panel {
+  display: inline-block;
+  border-radius: 5px;
+  background-color: white;
+  margin: 10px;
+  padding: 8px;
+  box-shadow: 0 1px 3px #e0e0e0;
+  overflow: hidden;
+  color: $text-color-dark;
+
+  p.title {
+    padding: 10px;
+    border-bottom: 1px solid $color-secondary;
+  }
+
+  div.panel-content {
+    height: 100%;
+    text-align: center;
+    span {
+      display: inline-block;
+      line-height: normal;
+      vertical-align: middle;
+    }
+    .single-data {
+      padding: 10px;
+      font-size: 36px;
+      text-align: center;
+    }
+  }
+
+}
+.panel-small {
+  @extend .panel;
+  width: $panel-small-width;
+  height: $panel-small-height;
+  div.panel-content {
+    overflow: hidden;
+    height: $panel-small-height - 50;
+    line-height: $panel-small-height - 50;
+  }
+}
+
+.panel-medium {
+  @extend .panel;
+  width: $panel-medium-width;
+  height: $panel-medium-height;
+  div.panel-content {
+    overflow-y: scroll;
+    height: $panel-medium-height - 50;
+  }
+}
+
+.panel-large {
+  @extend .panel;
+  width: $panel-large-width;
+  height: $panel-large-height;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+}
+th{
+  padding: 8px;
+  text-align: left;
+}
+td{
+  padding: 5px;
+  text-align: left;
+  border-top: 1px solid $table-border;
+}
+.table-striped {
+  > tbody > tr:nth-of-type(odd) {
+    background-color: $table-bg-accent;
+  }
+}

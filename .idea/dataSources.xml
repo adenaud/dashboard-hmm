@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="3554460340">
+    <data-source source="LOCAL" name="PostgreSQL - harvestmap@192.168.0.11" uuid="055a31ec-f716-457a-8d93-fa4975f9ceb7">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://192.168.0.11:5432/harvestmap</jdbc-url>
+      <libraries />
+    </data-source>
+  </component>
+</project>

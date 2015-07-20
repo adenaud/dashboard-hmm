@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>HarvestMap Merger - Dashboard</title>
+
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+  <script src="http://code.highcharts.com/highcharts.js"></script>
+  <script src="http://code.highcharts.com/highcharts-more.js"></script>
+  <script src="http://code.highcharts.com/modules/solid-gauge.js"></script>
+
+</head>
+<body>
+<script>
+    $(document).on('ready page:load', function () {
+        setActive('<%= params[:action] %>');
+    });
+
+</script>
+<div id="wrap">
+  <div class="nav"><p>HarvestMap Merger - Dashboard</p></div>
+  <div class="menu">
+    <ul>
+      <li><%= link_to '<i class="fa fa-tachometer"></i> Tableau de bord'.html_safe, home_index_path, id: 'index' %></li>
+      <li><%= link_to '<i class="fa fa-globe"></i> Zones'.html_safe, home_zones_path, id: 'zones' %></li>
+      <li><%= link_to '<i class="fa fa-upload"></i> Contributions'.html_safe, home_contributions_path, id: 'contributions' %></li>
+    </ul>
+  </div>
+  <div class="content">
+    <%= yield %>
+    <div class="clear"></div>
+  </div>
+</div>
+
+
+</body>
+</html>

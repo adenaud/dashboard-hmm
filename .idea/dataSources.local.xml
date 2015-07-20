@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="PostgreSQL - harvestmap@192.168.0.11" uuid="055a31ec-f716-457a-8d93-fa4975f9ceb7">
+      <secret-storage>master_key</secret-storage>
+      <user-name>anthony</user-name>
+      <schema-pattern>harvestmap.pg_catalog harvestmap.public</schema-pattern>
+      <default-schemas>harvestmap.pg_catalog harvestmap.public</default-schemas>
+    </data-source>
+  </component>
+</project>

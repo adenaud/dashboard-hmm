@@ -1,0 +1,45 @@
+<div>
+  <div class="panel-small">
+    <p class="title">Nombre total de contributions</p>
+
+    <div class="panel-content">
+      <span class="single-data"><%= @contributions.count %></span>
+    </div>
+  </div>
+
+  <div class="panel-small">
+    <p class="title">Moyenne d'ajouts</p>
+
+    <div id="gauge-import-average" class="panel-content">
+    </div>
+  </div>
+</div>
+
+<div class="panel-medium">
+  <p class="title">Evolution des contributions</p>
+
+  <div id="evolution"></div>
+</div>
+
+<div class="panel-medium">
+  <p class="title">Historique des contributions</p>
+
+  <div class="panel-content">
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>Date</th>
+        <th>Contributeur</th>
+        <th>Données importés</th>
+      </tr>
+      </thead>
+      <% @contributions_non_null.each do |contrib| %>
+          <tr>
+            <td><%= contrib.time.strftime('%d/%m/%y %H:%M') %></td>
+            <td><%= contrib.uploader %></td>
+            <td><%= contrib.data_imported_count %></td>
+          </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
