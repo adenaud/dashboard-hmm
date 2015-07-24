@@ -4,7 +4,7 @@
 
 $(document).on('ready page:load', function () {
 
-    $.getJSON("/api/importAverage", function (data) {
+    $.getJSON("../api/importAverage", function (data) {
 
         $('#gauge-import-average').highcharts(Highcharts.merge(commonChartOption, gaugeOptions, {
             yAxis: {
@@ -25,7 +25,7 @@ $(document).on('ready page:load', function () {
         }));
     });
 
-    $.getJSON("/api/contributionEvolution", function (data) {
+    $.getJSON("../api/contributionEvolution", function (data) {
         $('#evolution').highcharts(Highcharts.merge(commonChartOption, {
             chart: {
                 type: 'column'

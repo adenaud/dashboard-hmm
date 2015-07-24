@@ -4,7 +4,7 @@
 
 $(document).on('ready page:load', function () {
 
-    $.getJSON("/api/countType", function (data) {
+    $.getJSON("../api/countType", function (data) {
 
         $('#types-count').highcharts(Highcharts.merge(commonChartOption, {
             tooltip: {
