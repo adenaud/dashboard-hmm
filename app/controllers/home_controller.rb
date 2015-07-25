@@ -1,15 +1,5 @@
 class HomeController < ApplicationController
 
-  baseZone = ['alikr/alikr_base' => 'Alikr',
-              'auridon/auridon_base' => 'Auridion',
-              'bangkorai/bangkorai_base' => 'Bankorai',
-              'coldharbor/coldharbour_base' => 'Havreglace',
-              'craglorn/craglorn_base' => 'Raidelorn',
-              'cyrodiil/ava_whole' => 'Cyrodiil'
-
-  ]
-
-
   def index
     @count = Node.all.count
     @last_update = UploadData.last
