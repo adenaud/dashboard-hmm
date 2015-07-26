@@ -11,7 +11,12 @@ var commonChartOption = {
     title: {
         text: ""
     },
-
+    legend: {
+        enabled : true
+    },
+    chart: {
+        spacingBottom: 50
+    },
     yAxis: {
         title: {
             style: {
@@ -33,6 +38,11 @@ var commonChartOption = {
                     fontWeight: "bold",
                     color: '#424242'
                 }
+            }
+        },
+        line:{
+            marker: {
+                symbol :"circle"
             }
         }
     }

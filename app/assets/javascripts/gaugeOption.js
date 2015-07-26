@@ -4,7 +4,8 @@
 var gaugeOptions = {
 
     chart: {
-        type: 'solidgauge'
+        type: 'solidgauge',
+        spacingBottom: 0
     },
 
     title: null,
