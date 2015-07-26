@@ -26,17 +26,12 @@ $(document).on('ready page:load', function () {
             type: 'line'
         },
         xAxis:{
-            type: 'category'
+            type: 'datetime'
         },
         yAxis: {
             min: 0,
             title: {
                 text: 'Données importés'
-            }
-        },
-        plotOptions: {
-            area: {
-                stacking: 'percent'
             }
         },
         tooltip: {

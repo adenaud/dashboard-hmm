@@ -28,7 +28,7 @@ class ApiController < ApplicationController
 
     data = []
     nodes_evolutions.each { |node|
-      point = {:x => node.date.to_time.to_i,
+      point = {:x => node.date.to_time.to_i * 1000,
                :y => node.total.to_i
       }
       data.push(point)
