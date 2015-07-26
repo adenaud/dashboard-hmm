@@ -1,19 +1,21 @@
 Rails.application.routes.draw do
 
+  root 'home#index'
 
   get 'home/index'
   get 'home/zones'
   get 'home/contributions'
 
-  get 'api/countType'
-  get 'api/importAverage'
-  get 'api/contributionEvolution'
+  get 'api/types_count'
+  get 'api/contributions_average'
+  get 'api/contributions_evolution'
+  get 'api/types_evolution/:id', to: 'api#types_evolution', as: 'type'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'home#index'
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -5,10 +5,13 @@
       <list>
         <State>
           <option name="id" value="87c20d00-8cec-4511-bf54-7c0aeefcd3c3" />
-          <option name="name" value="DDL data source" />
+          <option name="name" value="DDL HarvestMap" />
+          <option name="parent" value="055a31ec-f716-457a-8d93-fa4975f9ceb7" />
           <option name="urls">
             <array>
               <option value="file://$PROJECT_DIR$/update.sql" />
+              <option value="file://$PROJECT_DIR$/zones.sql" />
+              <option value="file://$PROJECT_DIR$/alliances.sql" />
             </array>
           </option>
         </State>
