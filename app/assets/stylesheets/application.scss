@@ -23,11 +23,11 @@ $panel-small-height: 150px;
 $panel-small-width: 230px;
 $panel-medium-height: 400px;
 $panel-medium-width: 500px;
-$panel-large-height: 400px;
+$panel-large-height: 500px;
 $panel-large-width: 100%;
 
-$table-border : #ddd;
-$table-bg-accent : #ede7f6;
+$table-border: #ddd;
+$table-bg-accent: #ede7f6;
 
 * {
   font-family: sans-serif;
@@ -102,9 +102,8 @@ html, body {
 
 .content {
   margin-left: 220px;
-  padding-top: 60px;
   padding-right: 50px;
-
+  padding-top: 60px;
 }
 
 .panel {
@@ -123,7 +122,6 @@ html, body {
   }
 
   div.panel-content {
-    height: 100%;
     text-align: center;
     span {
       display: inline-block;
@@ -138,6 +136,7 @@ html, body {
   }
 
 }
+
 .panel-small {
   @extend .panel;
   width: $panel-small-width;
@@ -163,6 +162,10 @@ html, body {
   @extend .panel;
   width: $panel-large-width;
   height: $panel-large-height;
+  div.panel-content {
+    overflow-y: scroll;
+    height: $panel-large-height - 50;
+  }
 }
 
 table {
@@ -170,17 +173,24 @@ table {
   border-spacing: 0;
   width: 100%;
 }
-th{
+
+th {
   padding: 8px;
   text-align: left;
 }
-td{
+
+td {
   padding: 5px;
   text-align: left;
   border-top: 1px solid $table-border;
 }
+
 .table-striped {
   > tbody > tr:nth-of-type(odd) {
     background-color: $table-bg-accent;
   }
+}
+
+.clear {
+  clear: both;
 }

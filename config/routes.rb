@@ -9,7 +9,9 @@ Rails.application.routes.draw do
   get 'api/types_count'
   get 'api/contributions_average'
   get 'api/contributions_evolution'
-  get 'api/types_evolution/:id', to: 'api#types_evolution', as: 'type'
+  get 'api/types_evolution/:id', to: 'api#types_evolution'
+  get 'api/zones_count/:zone', to: 'api#zones_count'
+  get 'api/zones_list'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

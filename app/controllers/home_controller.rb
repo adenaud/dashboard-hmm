@@ -6,7 +6,8 @@ class HomeController < ApplicationController
   end
 
   def zones
-
+    @categories  = Category.all.order(:id)
+    @zones = Zone.all.order(:name)
   end
 
   def contributions

@@ -1579,6 +1579,7 @@
     <table name="categories" schema="public" catalog="harvestmap" type="TABLE">
       <column name="id" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
       <column name="name" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="color" sqlType="varchar" precision="7" scale="0" nullable="true" jdbcType="12"/>
       <primary-key name="types_pkey" columns="id"/>
     </table>
     <table name="nodes" schema="public" catalog="harvestmap" type="TABLE">
@@ -1589,8 +1590,11 @@
       <column name="x" sqlType="float8" precision="17" scale="17" nullable="false" jdbcType="8"/>
       <column name="y" sqlType="float8" precision="17" scale="17" nullable="false" jdbcType="8"/>
       <column name="zone" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
-      <column name="time" sqlType="timestamp" precision="29" scale="6" nullable="true" jdbcType="93"/>
+      <column name="id_upload" sqlType="int8" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="upload_data" sqlType="int8" precision="19" scale="0" nullable="true" jdbcType="-5"/>
       <primary-key name="nodes_pkey" columns="id"/>
+      <foreign-key name="fk_m8355d617t7uqydabqfq1d9gy" columns="upload_data" ref-table="upload_datas" ref-schema="public" ref-catalog="" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="upload_fk" columns="id_upload" ref-table="upload_datas" ref-schema="public" ref-catalog="" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
       <index name="fki_category" unique="false" columns="category"/>
     </table>
     <table name="sq_alliance" schema="public" catalog="harvestmap" type="SEQUENCE">
@@ -1659,6 +1663,8 @@
       <column name="time" sqlType="timestamp" precision="29" scale="6" nullable="true" jdbcType="93"/>
       <column name="uploader" sqlType="varchar" precision="255" scale="0" nullable="true" jdbcType="12"/>
       <primary-key name="upload_datas_pkey" columns="id"/>
+      <exported-key name="fk_m8355d617t7uqydabqfq1d9gy" table="nodes" schema="public" catalog="harvestmap" columns="upload_data"/>
+      <exported-key name="upload_fk" table="nodes" schema="public" catalog="harvestmap" columns="id_upload"/>
     </table>
     <table name="zones" schema="public" catalog="harvestmap" type="TABLE">
       <column name="id" sqlType="bigserial" precision="19" scale="0" nullable="false" jdbcType="-5" def="bmV4dHZhbCgnc3Ffem9uZSc6OnJlZ2NsYXNzKQ==" autoIncrement="true"/>

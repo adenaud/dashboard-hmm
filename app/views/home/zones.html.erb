@@ -1,0 +1,65 @@
+<script>
+    $(document).on('ready page:load', function () {
+
+        var requests = [];
+
+        $('table#zones tbody tr').each(function(){
+            var zone_codename = $(this).find('td').attr('id');
+            zone_codename = zone_codename.replace("/","-");
+            requests.push($.getJSON("../api/zones_count/"+zone_codename, function (result) {
+                var id_zone = result.zone;
+                var datas = result.datas
+
+                $.each(datas,function(i){
+                    var id_category = datas[i][0];
+                    var count = datas[i][1];
+
+                    $('table#zones tbody tr td#'+id_zone+'_'+id_category).html(count);
+                });
+
+
+            }));
+        });
+
+        $.when.apply(null,requests).then(function (){
+
+            $('table#zones').DataTable({
+                paging: false,
+                searching: false,
+                info:false
+            });
+        });
+
+
+    });
+
+</script>
+
+
+
+<div class="panel-large">
+  <p class="title">Zones</p>
+
+  <div class="panel-content">
+    <table id="zones" class="table table-striped">
+      <thead>
+      <tr>
+        <th>Zones</th>
+        <% @categories.each do |category| %>
+            <th id="cat<%= category.id %>"><%= category.name %></th>
+        <% end %>
+      </tr>
+      </thead>
+      <tbody>
+      <% @zones.each do |zone| %>
+          <tr>
+            <td id="<%= zone.codename %>"><%= zone.name %></td>
+            <% @categories.each do |category| %>
+                <td id="<%=  zone.id.to_s + '_' + category.id.to_s  %>">0</td>
+            <% end %>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
