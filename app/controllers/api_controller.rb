@@ -66,10 +66,13 @@ WHERE n.category = '+params[:id]+' and u.time >=  u2.time ) as total')
     zones_count = Node.group(:category).where(:zone => zone_code).order(:category).count;
 
     zone = Zone.find_by(:codename => zone_code);
-
     zones = zones_count.map;
 
-    render json: { :zone => zone.id, :datas => zones}
+    total = 0;
+    zones.each do |z|
+      total += z[1];
+    end
+    render json: { :zone => zone.id, :total => total,:datas => zones}
   end
 
   def zones_list

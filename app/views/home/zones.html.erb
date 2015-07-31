@@ -9,13 +9,15 @@
             requests.push($.getJSON("../api/zones_count/"+zone_codename, function (result) {
                 var id_zone = result.zone;
                 var datas = result.datas
-
+                var total = result.total;
                 $.each(datas,function(i){
                     var id_category = datas[i][0];
                     var count = datas[i][1];
 
                     $('table#zones tbody tr td#'+id_zone+'_'+id_category).html(count);
                 });
+
+                $('table#zones tbody tr td#total_'+id_zone).html(total);
 
 
             }));
@@ -45,15 +47,17 @@
       <thead>
       <tr>
         <th>Zones</th>
+        <th>Tout</th>
         <% @categories.each do |category| %>
-            <th id="cat<%= category.id %>"><%= category.name %></th>
+            <th class="data" id="cat<%= category.id %>"><%= category.name %></th>
         <% end %>
       </tr>
       </thead>
       <tbody>
       <% @zones.each do |zone| %>
           <tr>
-            <td id="<%= zone.codename %>"><%= zone.name %></td>
+            <td class="data" id="<%= zone.codename %>"><%= zone.name %></td>
+            <td class="data" id="total_<%=  zone.id.to_s %>"></td>
             <% @categories.each do |category| %>
                 <td id="<%=  zone.id.to_s + '_' + category.id.to_s  %>">0</td>
             <% end %>
